@@ -27,7 +27,7 @@ if selection == 'Home':
     st.write('(3) For further information go to Model Description.')
     
     image = []
-    input_size = (250,250)
+    input_size = (60,60)
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption='Uploaded Image.', use_column_width=True)
