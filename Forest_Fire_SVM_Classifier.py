@@ -7,7 +7,7 @@ import sklearn
 
 @st.cache_resource
 def load_model():
-    with open('C:/Users/HP/Documents/GitHub/ForestFireClassifier/Model/Forest_Fire_SVM_classifier_250.pkl', 'rb') as file:
+    with open('Forest_Fire_SVM_classifier_10.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 
