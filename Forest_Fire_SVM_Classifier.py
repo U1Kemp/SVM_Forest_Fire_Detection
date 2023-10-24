@@ -4,10 +4,22 @@ import streamlit as st
 import pickle
 import numpy as np
 import sklearn
+import zipfile
+
+zip_file_path = 'Forest_Fire_SVM_classifier_60.zip'
+
+# Extract the zip file
+@st.cache_data
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    # Assuming your model file is named 'model.pkl' inside the zip file
+    model_filename = 'Forest_Fire_SVM_classifier_60.pkl'
+    
+    # Extract the model file from the zip
+    zip_ref.extract(model_filename)  # Extract to a specific folder
 
 @st.cache_resource
 def load_model():
-    with open('Forest_Fire_SVM_classifier_10.pkl', 'rb') as file:
+    with open('Forest_Fire_SVM_classifier_60.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 
@@ -27,7 +39,7 @@ if selection == 'Home':
     st.write('(3) For further information go to Model Description.')
     
     image = []
-    input_size = (10,10)
+    input_size = (60,60)
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption='Uploaded Image.', use_column_width=True)
