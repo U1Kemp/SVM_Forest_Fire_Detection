@@ -12,7 +12,7 @@ def load_model():
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         with zip_ref.open('Forest_Fire_SVM_classifier_60.pkl', 'r') as model_file:
         # Unpickle the model file
-        model = pickle.load(model_file)
+            model = pickle.load(model_file)
     return model
     # with open('Forest_Fire_SVM_classifier_10.pkl', 'rb') as file:
     #     model = pickle.load(file)
